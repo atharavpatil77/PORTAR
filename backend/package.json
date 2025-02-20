@@ -1,0 +1,38 @@
+{
+  "name": "porter-backend",
+  "version": "1.0.0",
+  "description": "Backend for Porter Logistics Application",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "vitest",
+    "seed-admin": "node src/data/adminSeeder.js",
+    "seed-levels": "node src/data/levelSeeder.js",
+    "update:admin": "node src/scripts/updateAdminPassword.js",
+    "check:admin": "node src/scripts/checkAdmin.js",
+    "fix:admin": "node src/scripts/fixAdmin.js"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.12.4",
+    "apollo-server-express": "^3.13.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-validator": "^7.0.1",
+    "graphql": "^16.10.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.0",
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2",
+    "nodemailer": "^6.9.16",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "vitest": "^1.3.1"
+  }
+}

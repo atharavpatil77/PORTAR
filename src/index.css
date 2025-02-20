@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #9d00ff;
+  --space-bg: #0a0b1e;
+  --star-color: #ffffff;
+  --portal-color-1: #4f46e5;
+  --portal-color-2: #7c3aed;
+}
+
+/* Space Background */
+.space-background {
+  @apply min-h-screen;
+  background: var(--space-bg);
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  animation: space-float 30s linear infinite;
+}
+
+/* Enhanced Input Styles */
+.cosmic-input {
+  @apply block w-full px-4 py-3 pl-10 bg-opacity-10 bg-white backdrop-blur-sm;
+  @apply border-2 border-transparent rounded-lg;
+  @apply text-white placeholder-gray-400;
+  @apply transition-all duration-300;
+  @apply focus:outline-none;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+}
+
+.cosmic-input:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 0 15px rgba(0, 243, 255, 0.2),
+    0 0 30px rgba(157, 0, 255, 0.1);
+}
+
+.cosmic-input:focus {
+  border-color: var(--neon-blue);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 0 20px rgba(0, 243, 255, 0.3),
+    0 0 40px rgba(157, 0, 255, 0.2);
+}
+
+/* Form Styles */
+.cosmic-form {
+  @apply space-y-6 p-8 rounded-xl;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 0 30px rgba(0, 243, 255, 0.1),
+    0 0 60px rgba(157, 0, 255, 0.1);
+}
+
+/* Button Styles */
+.cosmic-button {
+  @apply px-6 py-2 rounded-lg text-white font-medium;
+  @apply transition-all duration-300;
+  @apply disabled:opacity-50;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  box-shadow: 
+    0 0 15px rgba(0, 243, 255, 0.3),
+    0 0 30px rgba(157, 0, 255, 0.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.cosmic-button:hover:not(:disabled) {
+  box-shadow: 
+    0 0 20px rgba(0, 243, 255, 0.4),
+    0 0 40px rgba(157, 0, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Profile Page Styles */
+.cosmic-button {
+  @apply px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium transition-colors;
+}
+
+.toggle-checkbox {
+  @apply relative w-10 h-6 appearance-none bg-gray-700 rounded-full transition-colors cursor-pointer;
+}
+
+.toggle-checkbox:checked {
+  @apply bg-blue-500;
+}
+
+.toggle-checkbox:before {
+  content: '';
+  @apply absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform;
+}
+
+.toggle-checkbox:checked:before {
+  @apply transform translate-x-4;
+}
+
+.cosmic-form {
+  @apply bg-gray-900 bg-opacity-75 backdrop-blur-lg rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all shadow-xl;
+}
+
+/* Game Elements */
+.xp-bar {
+  @apply h-2 bg-gray-700 rounded-full overflow-hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.xp-progress {
+  @apply h-full;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.achievement-badge {
+  @apply relative flex items-center justify-center;
+  background: linear-gradient(45deg, var(--portal-color-1), var(--portal-color-2));
+  box-shadow: 
+    0 0 20px var(--portal-color-1),
+    0 0 40px var(--portal-color-2);
+}
+
+.portal-ring {
+  @apply absolute rounded-full;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  animation: portal-pulse 2s infinite;
+}
+
+.level-badge {
+  @apply w-8 h-8 rounded-full flex items-center justify-center;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Text Styles */
+.neon-text {
+  text-shadow: 
+    0 0 10px rgba(0, 243, 255, 0.5),
+    0 0 20px rgba(157, 0, 255, 0.3);
+}
+
+.cosmic-error {
+  @apply mt-2 text-sm;
+  color: #ff4e4e;
+  text-shadow: 0 0 10px rgba(255, 78, 78, 0.5);
+}
+
+/* Cosmic Card Styles */
+.cosmic-card {
+  @apply bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-lg border border-gray-800;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+              inset 0 0 20px rgba(0, 243, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cosmic-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+              inset 0 0 30px rgba(0, 243, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Profile Picture Glow */
+.profile-picture-glow {
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+/* Status Indicator Glow */
+.status-indicator {
+  box-shadow: 0 0 10px currentColor;
+}
+
+/* Performance Metrics Animation */
+@keyframes numberCount {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metric-number {
+  animation: numberCount 0.5s ease-out forwards;
+}
+
+/* Document Status Icons */
+.document-verified {
+  @apply text-green-400;
+  filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.5));
+}
+
+.document-pending {
+  @apply text-yellow-400;
+  filter: drop-shadow(0 0 5px rgba(250, 204, 21, 0.5));
+}
+
+/* Animations */
+@keyframes space-float {
+  0% { background-position: 0 0, 40px 60px, 130px 270px; }
+  100% { background-position: 550px 550px, 390px 410px, 380px 520px; }
+}
+
+@keyframes portal-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes cosmic-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes neon-pulse {
+  0% { text-shadow: 0 0 10px var(--neon-blue); }
+  50% { text-shadow: 0 0 20px var(--neon-purple); }
+  100% { text-shadow: 0 0 10px var(--neon-blue); }
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
